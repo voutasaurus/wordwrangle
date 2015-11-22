@@ -85,10 +85,6 @@ func (w *wordMember) process() {
 	}
 }
 
-func validWord(candidate string) bool {
-	return len(candidate) > 0 && candidate[0] != '#' && candidate[0] != ' '
-}
-
 func writeFile(filename string, out chan wordMember, errCh chan error) {
 	// Write
 	to, err := os.Create(filename)
@@ -129,7 +125,7 @@ func writeFile(filename string, out chan wordMember, errCh chan error) {
 }
 
 func main() {
-	err := transcribe("wiki-100k.txt", "words.go")
+	err := transcribe("wiki-100k.txt", "words.txt")
 	if err != nil {
 		fmt.Println("Error transcribing", err)
 	}
